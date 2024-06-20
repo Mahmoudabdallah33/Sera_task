@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_sera_model_form" model="ir.ui.view">
+            <field name="name">sera.model.tree</field>
+            <field name="model">sera.model</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="status" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Name"/>
+                                <field name="description" string="Description"/>
+                            </group>
+
+                            <group>
+                                <field name="start_date" string="Start Date"/>
+                                <field name="end_date" string="End Date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_sera_model_search" model="ir.ui.view">
+            <field name="name">sera.model.tree</field>
+            <field name="model">sera.model</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="status"/>
+                    <filter name="status" string="Done" domain="[('status','=', 'Done')]"/>
+                    <filter name="status" string="In Progress" domain="[('status','=', 'In Progress')]"/>
+                    <filter name="status" string="Planned" domain="[('status','=', 'Planned')]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_sera_model_tree" model="ir.ui.view">
+            <field name="name">sera.model.tree</field>
+            <field name="model">sera.model</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="status == 'Done'" decoration-warning="status == 'In Progress'"
+                      sample="1" multi_edit="1">
+
+
+                    <field name="name" string="Name"/>
+                    <field name="start_date" string="Start Date"/>
+                    <field name="end_date" string="End Date"/>
+                    <field name="status" widget="badge" decoration-success="status == 'Done'"
+                           decoration-warning="status == 'In Progress'" />
+
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="sera_model_action" model="ir.actions.act_window">
+            <field name="name">Sera Action</field>
+            <field name="res_model">sera.model</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new Source
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+                id="menu_Sera_first"
+                parent="menu_Sera_root"
+                name="Sera"
+                action="sera_model_action"
+                sequence="2"/>
+
+    </data>
+</odoo>
