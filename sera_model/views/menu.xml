@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem
+                id="menu_Sera_Group_root"
+                name="Sera Group"
+                sequence="0"/>
+        <menuitem
+                id="menu_Sera_root"
+                parent="menu_Sera_Group_root"
+                name="Sera"
+                sequence="1"/>
+
+    </data>
+</odoo>
