@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <record id="report_sera_model" model="ir.actions.report">
+        <field name="name">Sera Report</field>
+        <field name="model">sera.model</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">New_model.sera_report_template</field>
+        <field name="report_file">New_model.report_sera_report_template</field>
+        <field name="binding_model_id" ref="model_sera_model"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
