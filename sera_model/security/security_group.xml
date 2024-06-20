@@ -1,0 +1,6 @@
+<odoo>
+    <record id="sera_model_access" model="res.groups">
+        <field name="name">Sera Model Access</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+    </record>
+</odoo>
